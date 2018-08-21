@@ -39,7 +39,20 @@ public class PlayerController : MonoBehaviour
 
             myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);//an x and a y value
 
-            if (Input.GetKeyDown(KeyCode.Space) || (Input.GetMouseButtonDown(0)) && !theQuestionHolder.active)
+            bool willJump = false;
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    willJump = true;
+                }else
+                {
+                    willJump = false;
+                    break;
+                }
+            }
+            
+            if (willJump || Input.GetKeyDown(KeyCode.Space) && !theQuestionHolder.active)
             { //need to change to touch screen
                 if (grounded)
                 {
