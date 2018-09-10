@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             
-            if (willJump || Input.GetKeyDown(KeyCode.Space) && !theQuestionHolder.active)
+            if (willJump || Input.GetKeyDown(KeyCode.Space) && !theQuestionHolder.activeInHierarchy)
             { //need to change to touch screen
                 if (grounded)
                 {
