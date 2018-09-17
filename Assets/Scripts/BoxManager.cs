@@ -5,8 +5,6 @@ using UnityEngine;
 public class BoxManager : MonoBehaviour
 {
 
-
-    
     public GameObject theBox;
     private PlatformGeneration thePlatformGeneration;
     private bool hasSpawn;

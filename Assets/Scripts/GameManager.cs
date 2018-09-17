@@ -25,12 +25,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void RestartGame()
     {
         if (theQuizManager.GameMode == 0) { theScoreManager.scoreIncreasing = false; }
@@ -60,24 +54,4 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
-    /*public IEnumerator RestartGameCo()
-    {
-        theScoreManager.scoreIncreasing = false;
-        thePlayer.gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-        platformList = FindObjectsOfType<PlatformDestroyer>();
-        for (int i = 0; i < platformList.Length; i++)
-        {
-            platformList[i].gameObject.SetActive(false);
-        }
-
-
-        thePlayer.transform.position = playerStartPoint;
-        platformGenerator.position = platformStartPoint;
-        thePlayer.gameObject.SetActive(true);
-
-        theScoreManager.scoreCount = 0;
-        theScoreManager.scoreIncreasing = true;
-    }*/
 }
