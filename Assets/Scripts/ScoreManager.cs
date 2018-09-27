@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
         {
             scoreCount += pointsPerSecond * Time.deltaTime;
         }
-        scoreText.text = "新加坡动物园: " + Mathf.Round(scoreCount);
+        scoreText.text = "新加坡动物园\n" + Mathf.Round(scoreCount);
 
 
     }
