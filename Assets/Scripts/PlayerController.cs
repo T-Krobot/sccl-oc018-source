@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     private Collider2D myCollider;
 
     private Animator myAnimator;
-    public bool canRun = true;
     public GameObject theQuestionHolder;
+    private float moveMulti = 1;
 
     // Use this for initialization
     void Start()
@@ -32,40 +32,45 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (canRun)
+    {   
+        grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
+
+        myRigidbody.velocity = new Vector2(moveSpeed * moveMulti, myRigidbody.velocity.y);//an x and a y value
+
+        bool willJump = false;
+        foreach (Touch touch in Input.touches)
         {
-            grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
-
-            myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);//an x and a y value
-
-            bool willJump = false;
-            foreach (Touch touch in Input.touches)
+            if (touch.phase == TouchPhase.Began)
             {
-                if (touch.phase == TouchPhase.Began)
-                {
-                    willJump = true;
-                }else
-                {
-                    willJump = false;
-                    break;
-                }
+                willJump = true;
+            }else
+            {
+                willJump = false;
+                break;
             }
-            
-            if (willJump || Input.GetKeyDown(KeyCode.Space) && !theQuestionHolder.activeInHierarchy)
-            { //need to change to touch screen
-                if (grounded)
-                {
-                    myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
-                }
-            }
-            myAnimator.SetFloat("Speed", myRigidbody.velocity.x);
-            myAnimator.SetBool("Grounded", grounded);
         }
+        
+        if (willJump || Input.GetKeyDown(KeyCode.Space) && !theQuestionHolder.activeInHierarchy)
+        {
+            if (grounded)
+            {
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
+            }
+        }
+        myAnimator.SetFloat("Speed", myRigidbody.velocity.x);
+        myAnimator.SetBool("Grounded", grounded);
+        
     }
 
     public void ToggleRunning()
     {
-        canRun = !canRun;
+        if(moveMulti == 1)
+        {
+            moveMulti = 0;
+        }
+        else
+        {
+            moveMulti = 1;
+        }
     }
 }

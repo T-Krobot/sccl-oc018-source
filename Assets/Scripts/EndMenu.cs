@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 public class EndMenu : MonoBehaviour
 {
 
-    public string mainMenuLevel;
-    public string gameLe;
-
     public void RestartGame()
     {
         FindObjectOfType<GameManager>().Reset();
@@ -18,6 +15,4 @@ public class EndMenu : MonoBehaviour
     {
         SceneManager.LoadScene(level);
     }
-
-
 }

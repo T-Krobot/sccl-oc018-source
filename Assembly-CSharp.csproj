@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LoadCredits.cs" />
      <Compile Include="Assets\Scripts\AnswerObject.cs" />
+     <Compile Include="Assets\Scripts\BackAndroid.cs" />
      <Compile Include="Assets\Scripts\Boxes.cs" />
      <Compile Include="Assets\Scripts\BoxManager.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />

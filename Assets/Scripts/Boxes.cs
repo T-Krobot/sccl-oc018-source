@@ -24,15 +24,8 @@ public class Boxes : MonoBehaviour
         thePlayerController = FindObjectOfType<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
-        //        Debug.Log(other.name);
         if (other.gameObject.name == "Player")
         {
             theBoxManager.EnableQuestionHolder();
