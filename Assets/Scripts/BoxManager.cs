@@ -20,7 +20,7 @@ public class BoxManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newBoxPosition = new Vector3(transform.position.x + 12, 1, 0);
+        Vector3 newBoxPosition = new Vector3(transform.position.x + 24, 1, 0);
         //Spawns the box everytime after 5 platforms are beinggenerated
         if ((thePlatformGeneration.platformCount % 5) == 0)
         {
